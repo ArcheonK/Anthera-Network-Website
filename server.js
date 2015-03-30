@@ -9,9 +9,21 @@ mongoose.connect('mongodb://localhost/anthera');
 var storeSchema = new mongoose.Schema({
 	name: String,
 	desc: String,
-	price: String
+	price: String,
+	imgUrl: String
 }, {collection: 'storeSchema'});
 var storeItem = mongoose.model('storeItem', storeSchema);
+
+var boardSchema = new mongoose.Schema({
+	username: String,
+	level: Number,
+	kills: Number,
+	money: Number,
+	deaths: Number,
+	playtime: Number,
+	category: String
+}, {collection: 'boardSchema'});
+var boardPlayer = mongoose.model('boardPlayer', boardSchema);
 /*
 var storeDB = mongoose.model('store', storeSchema);
 var store = mongoose.model('store');
@@ -43,7 +55,7 @@ app.get('/', function(req, res) {
 		{ link: '/', name: 'Home', active: 'active' },
 		{ link: 'http://google.com', name: 'Forums', active: '' },
 		{ link: '/store', name: 'Store', active: '' },
-		{ link: 'http://google.com', name: 'Stats', active: '' },
+		{ link: '/stats', name: 'Stats', active: '' },
 		{ link: 'http://google.com', name: 'Bans', active: ''  },
 		{ link: 'http://google.com', name: 'Map', active: '' },
 		{ link: 'http://google.com', name: 'Servers', active: '' },
@@ -60,7 +72,7 @@ app.get('/store', function(req, res) {
 		{ link: '/', name: 'Home', active: '' },
 		{ link: 'http://google.com', name: 'Forums', active: '' },
 		{ link: '/store', name: 'Store', active: 'active' },
-		{ link: 'http://google.com', name: 'Stats', active: '' },
+		{ link: '/stats', name: 'Stats', active: '' },
 		{ link: 'http://google.com', name: 'Bans', active: ''  },
 		{ link: 'http://google.com', name: 'Map', active: '' },
 		{ link: 'http://google.com', name: 'Servers', active: '' },
@@ -74,6 +86,25 @@ app.get('/store', function(req, res) {
 		});
 		storeItems.forEach(function(storeItemMeta) {
 
+		});
+	});
+});
+
+app.get('/stats', function(req, res) {
+	var menuItems = [
+		{ link: '/', name: 'Home', active: '' },
+		{ link: 'http://google.com', name: 'Forums', active: '' },
+		{ link: '/store', name: 'Store', active: '' },
+		{ link: '/stats', name: 'Stats', active: 'active' },
+		{ link: 'http://google.com', name: 'Bans', active: ''  },
+		{ link: 'http://google.com', name: 'Map', active: '' },
+		{ link: 'http://google.com', name: 'Servers', active: '' },
+		{ link: 'http://google.com', name: 'Apply', active: '' }
+	];
+	boardPlayer.find(function(err, boardPlayers) {
+		res.render('pages/stats', {
+			menuItems: menuItems,
+			boardData: boardPlayers
 		});
 	});
 });

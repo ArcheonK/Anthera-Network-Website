@@ -45,6 +45,14 @@ body, html {height: 100%;}
 .store .box .buy-btn {color: #EAAB4E; border: 2px solid #EAAB4E; text-decoration: none; padding: 8px; display: block; width: 60px; float: right; position: absolute; left: 176px; top: 110px;}
 .store .box .buy-btn:hover span {display: none;}
 .store .box .buy-btn:hover:before {content: "BUY";}
+.stats-menu {text-align: center; width: 80%; margin: auto; height: 55px; line-height: 55px; font-family: 'Lato', sans-serif; font-size: 0; position: relative;}
+.stats-menu a {color: #EAAB4E; text-decoration: none;  font-size: 18px; display: block; width: 120px; float: left;}
+.stats-menu a:hover {background: #EAAB4E; color: #fff;}
+.stats-menu .filter {position: absolute; top: 55px;} 
+.stats-menu .filter label {font-size: 18px; color: #fff;}
+.stats-menu .filter input {margin-left: 12.5px; margin-right: 12.5px;}
+.stats-menu .filter input[type="checkbox"] {border: 10px solid #000;}
+.stats {color: #fff; font-family: 'Lato', sans-serif;}
 
 .footer {color: #fff; font-family: 'Lato', sans-serif; font-size: 16px; text-align: center; height: 50px;}
 .footer #copyright {margin-right: 25px; display: inline-block;}
