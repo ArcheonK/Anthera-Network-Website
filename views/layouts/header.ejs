@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Anthera Network</title>
+		<!-- META -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<!-- CSS -->
+		<link rel="stylesheet" href="/css/main.css">
+		<!-- SCRIPTS -->
+		<script src="/js/jquery-1.11.2.min.js"></script>
+		<script src="/js/main.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="nav">
+				<div class="links">
+					<% menuItems.forEach(function(menuItem) { %>
+					<a href="<%= menuItem.link %>"><%= menuItem.name %></a>
+					<% }); %>
+					<!--
+					<a href="#">Home</a>
+					<a href="#">Forums</a>
+					<a href="#">Store</a>
+					<a href="#">Stats</a>
+					<a href="#">Bans</a>
+					<a href="#">Map</a>
+					<a href="#">Servers</a>
+					<a href="#">Apply</a>
+					-->
+				</div>
+			</div>
+
+<!--
+	</body>
+</html>
+-->

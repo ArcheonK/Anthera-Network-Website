@@ -1,0 +1,11 @@
+{
+  "name": "Anthera",
+  "version": "1.0.0",
+  "description": "Anthera Network Website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "killazombiecow",
+  "license": "ISC"
+}

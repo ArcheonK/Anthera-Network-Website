@@ -1,0 +1,43 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+@import url(http://fonts.googleapis.com/css?family=Cinzel:400,900,700);
+* {margin: 0; padding: 0;}
+body {overflow-x: hidden; background-attachment: fixed; background-repeat: repeat-x; background: #2A132B;}
+body, html {height: 100%;}
+.parallax {}
+#foreground {height: 100%; background: url('/images/GoA-foreground.png');}
+#backdrop {height: 100%; background: url('/images/GoA-backdrop.jpg');}
+.wrapper {min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -50px; z-index: 1;}
+.nav {background: #35414F; height: 90px; font-family: 'Lato', sans-serif; z-index: 1;}
+.nav .links {position: absolute; right: 0; left: 0; text-align: center; font-size: 0;}
+.nav .links a {color: #fff; text-decoration: none; margin-left: 12.5px; margin-right: 12.5px; font-size: 18px; position: relative; top: -70px;}
+.nav .links a {
+	-webkit-transition: all 150ms;
+	-moz-transition: all 150ms;
+	-ms-transition: all 150ms;
+	-o-transition: all 150ms;
+	transition: all 150ms;
+}
+.nav .links a:hover {color: #EAAB4E;}
+.nav .links #nav-logo {position: relative; top: 37px; width: 200px;}
+.jumbo {color: #fff; font-family: 'Cinzel', serif; text-align: center; margin-top: 50px; padding-bottom: 120px;}
+.jumbo #welcome-to {color: #EAAB4E; font-size: 1.5em;}
+.jumbo img {-webkit-filter: invert(100%); filter: invert(100%;); width: 25%;}
+.jumbo p {font-size: 20px; font-family: 'Lato', sans-serif; width: 460px; margin: auto; margin-top: 25px;}
+.features {width: 800px; margin: auto; text-align: center; color: #fff; margin-top: 60px;}
+.features h1 {font-family: 'Cinzel', serif; color: #EAAB4E; position: relative; top: -120px;}
+.features .box {width: 30%; display: inline-block; height: 200px; float: left; margin-left: 10px; margin-right: 10px; position: relative;}
+.features .box h2 {font-family: 'Cinzel', serif;}
+.features .box p {font-family: 'Lato', sans-serif;}
+.features div[id^="ico-"] {text-indent: 9999px; background-image: url('/images/server-icons.png'); width: 120px; height: 99px; position: absolute; left: 55px; bottom: 200px;}
+.features #ico-survival-factions {background-position: 360px -22px;} 
+.features #ico-rpg {background-position: center;}
+.features #ico-kitpvp {background-position: 130px -22px;}
+.features a {color: #EAAB4E; text-decoration: none; font-size: 18px; font-family: 'Lato', sans-serif; margin-bottom: 120px; position: relative; right: 15px;}
+
+
+.footer {color: #fff; font-family: 'Lato', sans-serif; font-size: 16px; text-align: center; height: 50px;}
+.footer #copyright {margin-right: 25px; display: inline-block;}
+.footer .links {display: inline-block; font-size: 0;}
+.footer .links a {color: #EAAB4E; text-decoration: none; margin-left: 10px; margin-right: 10px; font-size: 16px;}
+
+.push {height: 100px;}
