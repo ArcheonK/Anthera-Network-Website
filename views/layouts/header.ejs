@@ -15,20 +15,13 @@
 	<body>
 		<div class="wrapper">
 			<div class="nav">
+				<div class="brand">
+					<a href="#"><img src="/images/GoA-logo.png" alt="Logo" id="nav-logo"></a>
+				</div>
 				<div class="links">
 					<% menuItems.forEach(function(menuItem) { %>
-					<a href="<%= menuItem.link %>"><%= menuItem.name %></a>
+					<a href="<%= menuItem.link %>" class="<%= menuItem.active %>"><%= menuItem.name %></a>
 					<% }); %>
-					<!--
-					<a href="#">Home</a>
-					<a href="#">Forums</a>
-					<a href="#">Store</a>
-					<a href="#">Stats</a>
-					<a href="#">Bans</a>
-					<a href="#">Map</a>
-					<a href="#">Servers</a>
-					<a href="#">Apply</a>
-					-->
 				</div>
 			</div>
 

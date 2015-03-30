@@ -7,9 +7,9 @@ body, html {height: 100%;}
 #foreground {height: 100%; background: url('/images/GoA-foreground.png');}
 #backdrop {height: 100%; background: url('/images/GoA-backdrop.jpg');}
 .wrapper {min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -50px; z-index: 1;}
-.nav {background: #35414F; height: 90px; font-family: 'Lato', sans-serif; z-index: 1;}
+.nav {background: #35414F; height: 90px; font-family: 'Lato', sans-serif; z-index: 1; line-height: 90px;}
 .nav .links {position: absolute; right: 0; left: 0; text-align: center; font-size: 0;}
-.nav .links a {color: #fff; text-decoration: none; margin-left: 12.5px; margin-right: 12.5px; font-size: 18px; position: relative; top: -70px;}
+.nav .links a {color: #fff; text-decoration: none; margin-left: 12.5px; margin-right: 12.5px; font-size: 18px;}
 .nav .links a {
 	-webkit-transition: all 150ms;
 	-moz-transition: all 150ms;
@@ -18,7 +18,9 @@ body, html {height: 100%;}
 	transition: all 150ms;
 }
 .nav .links a:hover {color: #EAAB4E;}
-.nav .links #nav-logo {position: relative; top: 37px; width: 200px;}
+.nav .links a.active {color: #EAAB4E;}
+.nav .brand {position: absolute; left: 5px; top: -33px;}
+.nav .brand #nav-logo {width: 200px;}
 .jumbo {color: #fff; font-family: 'Cinzel', serif; text-align: center; margin-top: 50px; padding-bottom: 120px;}
 .jumbo #welcome-to {color: #EAAB4E; font-size: 1.5em;}
 .jumbo img {-webkit-filter: invert(100%); filter: invert(100%;); width: 25%;}
