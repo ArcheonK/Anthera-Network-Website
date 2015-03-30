@@ -6,35 +6,13 @@
 		<a href="#" style="border-top: 2px solid #EAAB4E; border-right: 2px solid #EAAB4E; border-bottom: 2px solid #EAAB4E; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">PVP Items</a>
 	</div>
 	<div class="store">
+		<% storeData.forEach(function(storeItemMeta) { %>
 		<div class="box">
-			<img src="http://placehold.it/100x100/EAAA50" alt="">
-			<p>Brief description goes here</p>
-			<a href="#" class="buy-btn">$2.99</a>
+			<img src="http://placehold.it/150x150/EAAA50" alt="">
+			<h2><%= storeItemMeta.name %></h2>
+			<p><%= storeItemMeta.desc %></p>
+			<a href="#" class="buy-btn"><span>$<%= storeItemMeta.price %></span></a>
 		</div>
-		<div class="box">
-			<img src="http://placehold.it/100x100/EAAA50" alt="">
-			<h2>Item Name</h2>
-			<p>Brief description goes here</p>
-			<a href="#" class="buy-btn">$2.99</a>
-		</div>
-		<div class="box">
-			<img src="http://placehold.it/100x100/EAAA50" alt="">
-			<h2>Item Name</h2>
-			<p>Brief description goes here</p>
-			<a href="#" class="buy-btn">$2.99</a>
-		</div>
-		<div class="box">
-			<img src="http://placehold.it/100x100/EAAA50" alt="">
-			<h2>Item Name</h2>
-			<p>Brief description goes here</p>
-			<a href="#" class="buy-btn">$2.99</a>
-		</div>
-		<div class="box">
-			<img src="http://placehold.it/100x100/EAAA50" alt="">
-			<h2>Item Name</h2>
-			<p>Brief description goes here</p>
-			<a href="#" class="buy-btn">$2.99</a>
-		</div>
-	</div>
+		<% }); %>
 </div>
 <% include ../layouts/footer.ejs %>

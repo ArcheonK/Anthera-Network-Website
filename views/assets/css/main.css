@@ -38,11 +38,13 @@ body, html {height: 100%;}
 .store-menu {text-align: center; width: 400px; margin: auto; height: 55px; line-height: 55px; font-family: 'Lato', sans-serif; font-size: 0;}
 .store-menu a {color: #EAAB4E; text-decoration: none; padding: 20px 20px 20px 20px; font-size: 18px;}
 .store-menu a:hover {background: #EAAB4E; color: #fff;}
-.store {font-family: 'Lato', sans-serif; text-align: center; width: 1000px; margin: auto; position: relative; left: 45px; padding-top: 100px;}
-.store .box {width: 35%; display: inline-block; color: #fff; text-align: left; margin-bottom: 25px; margin-left: 70px; margin-right: 70px;}
+.store {font-family: 'Lato', sans-serif; text-align: center; width: 90%; margin: auto; position: relative; left: 45px; padding-top: 100px;}
+.store .box {width: 35%; display: inline-block; color: #fff; text-align: left; margin-bottom: 25px; margin-left: 100px; margin-right: 100px; position: relative;}
 .store .box img {float: left; margin-right: 25px;}
-.store .box p {padding-bottom: 22px;}
-.store .box .buy-btn {color: #EAAB4E; border: 2px solid #EAAB4E; text-decoration: none; padding: 8px;}
+.store .box p {padding-bottom: 24px; width: 500px;}
+.store .box .buy-btn {color: #EAAB4E; border: 2px solid #EAAB4E; text-decoration: none; padding: 8px; display: block; width: 60px; float: right; position: absolute; left: 176px; top: 110px;}
+.store .box .buy-btn:hover span {display: none;}
+.store .box .buy-btn:hover:before {content: "BUY";}
 
 .footer {color: #fff; font-family: 'Lato', sans-serif; font-size: 16px; text-align: center; height: 50px;}
 .footer #copyright {margin-right: 25px; display: inline-block;}

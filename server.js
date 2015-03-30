@@ -12,12 +12,6 @@ var storeSchema = new mongoose.Schema({
 	price: String
 }, {collection: 'storeSchema'});
 var storeItem = mongoose.model('storeItem', storeSchema);
-storeItem.find(function(err, storeItems) {
-	if(err) return console.error(err);
-	storeItems.forEach(function(storeItemMeta) {
-		console.log(storeItemMeta.id);
-	});
-});
 /*
 var storeDB = mongoose.model('store', storeSchema);
 var store = mongoose.model('store');
@@ -72,8 +66,15 @@ app.get('/store', function(req, res) {
 		{ link: 'http://google.com', name: 'Servers', active: '' },
 		{ link: 'http://google.com', name: 'Apply', active: '' }
 	];
-	res.render('pages/store', {
-		menuItems: menuItems
+	storeItem.find(function(err, storeItems) {
+		if(err) return console.error(err);
+		res.render('pages/store', {
+			menuItems: menuItems,
+			storeData: storeItems
+		});
+		storeItems.forEach(function(storeItemMeta) {
+
+		});
 	});
 });
 
