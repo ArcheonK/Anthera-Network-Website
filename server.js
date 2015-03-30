@@ -1,24 +1,40 @@
 //var subdomain = require('express-subdomain');
 var express = require('express');
 var app = express();
-var mysql = require('mysql');
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema;
 
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: 'prosperity1',
-	database: 'anthera'
+mongoose.connect('mongodb://localhost/anthera');
+
+var storeSchema = new mongoose.Schema({
+	name: String,
+	desc: String,
+	price: String
+}, {collection: 'storeSchema'});
+var storeItem = mongoose.model('storeItem', storeSchema);
+storeItem.find(function(err, storeItems) {
+	if(err) return console.error(err);
+	storeItems.forEach(function(storeItemMeta) {
+		console.log(storeItemMeta.id);
+	});
 });
-
-connection.connect();
-
-connection.query('SELECT * FROM `people` WHERE name="Sean"', function(err, results) {
-	if(err) throw err;
-	//console.log(results[0].name);
+/*
+var storeDB = mongoose.model('store', storeSchema);
+var store = mongoose.model('store');
+var startStore = new store();
+startStore.save(function(err, storeItem) {
+	console.log(storeItem);
 });
-
-connection.end();
-
+*/
+/*
+var createTable = new storeDB({name: 'Test', desc: 'ITEM DESC HERE BRO', price: '2.99'});
+createTable.save(function(err) {
+	if(err)
+		console.log(err);
+	else
+		console.log(createTable);
+});
+*/
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/views/assets'));
@@ -48,7 +64,7 @@ app.get('/', function(req, res) {
 app.get('/store', function(req, res) {
 	var menuItems = [
 		{ link: '/', name: 'Home', active: '' },
-		{ link: 'http://google.com', name: 'Forums', active: 'a' },
+		{ link: 'http://google.com', name: 'Forums', active: '' },
 		{ link: '/store', name: 'Store', active: 'active' },
 		{ link: 'http://google.com', name: 'Stats', active: '' },
 		{ link: 'http://google.com', name: 'Bans', active: ''  },
@@ -56,27 +72,9 @@ app.get('/store', function(req, res) {
 		{ link: 'http://google.com', name: 'Servers', active: '' },
 		{ link: 'http://google.com', name: 'Apply', active: '' }
 	];
-
 	res.render('pages/store', {
 		menuItems: menuItems
 	});
-});
-
-// Debugging
-app.get('/404', function(req, res) {
-	res.status(404);
-});
-
-app.get('/403', function(req, res) {
-	res.status(403);
-});
-
-app.get('/500', function(req, res) {
-	res.status(500);
-});
-
-app.get('/400', function(req, res) {
-	res.status(400);
 });
 
 app.get('*', function(req, res, next) {
@@ -88,31 +86,12 @@ app.get('*', function(req, res, next) {
 app.use(function(err, req, res, next) {
 	if(err.status !== 404) {
 		return next();
-	} else if (err.status == 400) {
-		res.render('error/error', {
-			error: '400',
-			message: 'Bad Request'
-		});
-		console.log(err.status);
-	} else if (err.status == 403) {
-		res.render('error/error', {
-			error: '403',
-			message: 'You are not authorized to view this document'
-		});
-		console.log(err.status);
-	} else if (err.status == 500) {
-		res.render('error/error', {
-			error: '500',
-			message: 'Internal Server Error'
-		});
-		console.log(err.status);
-	} else {
-		res.render('error/error', {
-			error: '404',
-			message: 'The document you requested could not be found or is corrupted'
-		});
-		console.log(req.connection.remoteAddress + ' encountered a ' + err.status);
-	} 
+	}
+
+	res.render('error/error', {
+		error: '404',
+		message: 'The document you requested could not be found or is corrupted.'
+	});
 });
 
 var server = app.listen(3000, function() {
