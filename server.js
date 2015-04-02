@@ -24,6 +24,14 @@ var boardSchema = new mongoose.Schema({
 	category: String
 }, {collection: 'boardSchema'});
 var boardPlayer = mongoose.model('boardPlayer', boardSchema);
+//var boardTable = new boardPlayer({username: 'killazombiecow', level: 15, kills: 25, money: 1203023.99, deaths: 500, playtime: 120, category: 'rpg'});
+/*boardTable.save(function(err) {
+	if(err)
+		console.log(err);
+	else
+		console.log(boardTable);
+});
+*/
 /*
 var storeDB = mongoose.model('store', storeSchema);
 var store = mongoose.model('store');
@@ -46,7 +54,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/views/assets'));
 
 app.use(function(req, res, next) {
-	console.log(req.connection.remoteAddress + ' has connected');
+	console.log(req.connection.remoteAddress.replace('::ffff', '') + ' has connected');
 	next();
 });
 
@@ -101,10 +109,35 @@ app.get('/stats', function(req, res) {
 		{ link: 'http://google.com', name: 'Servers', active: '' },
 		{ link: 'http://google.com', name: 'Apply', active: '' }
 	];
-	boardPlayer.find(function(err, boardPlayers) {
+	var statsMenu = 'survival';
+	boardPlayer.find({category: 'test'}, function(err, boardPlayers) {
+		if(err) return console.error(err);
 		res.render('pages/stats', {
 			menuItems: menuItems,
-			boardData: boardPlayers
+			boardData: boardPlayers,
+			statsMenu: statsMenu
+		});
+	});
+}); 
+
+app.get('/stats/rpg', function(req, res) {
+	var menuItems = [
+		{ link: '/', name: 'Home', active: '' },
+		{ link: 'http://google.com', name: 'Forums', active: '' },
+		{ link: '/store', name: 'Store', active: '' },
+		{ link: '/stats', name: 'Stats', active: 'active' },
+		{ link: 'http://google.com', name: 'Bans', active: ''  },
+		{ link: 'http://google.com', name: 'Map', active: '' },
+		{ link: 'http://google.com', name: 'Servers', active: '' },
+		{ link: 'http://google.com', name: 'Apply', active: '' }
+	];
+	var statsMenu = 'rpg';
+	boardPlayer.find({category: 'rpg'}, function(err, boardPlayers) {
+		if(err) return console.error(err);
+		res.render('pages/stats', {
+			menuItems: menuItems,
+			boardData: boardPlayers,
+			statsMenu: statsMenu
 		});
 	});
 });

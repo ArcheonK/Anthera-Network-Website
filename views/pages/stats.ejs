@@ -1,8 +1,8 @@
 <% include ../layouts/header.ejs %>
 <div class="container">
 	<div class="stats-menu">
-		<a href="#" style="border-top: 2px solid #EAAB4E; border-left: 2px solid #EAAB4E; border-bottom: 2px solid #EAAB4E; border-top-left-radius: 10px; border-bottom-left-radius: 10px;">Survival</a>
-		<a href="#" style="border-top: 2px solid #EAAB4E; border-right: 2px solid #EAAB4E; border-bottom: 2px solid #EAAB4E; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">RPG</a>
+		<a href="/stats" style="border-top: 2px solid #EAAB4E; border-left: 2px solid #EAAB4E; border-bottom: 2px solid #EAAB4E; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" <% if (statsMenu == 'survival') {%> class='active' <% } %>>Survival</a>
+		<a href="/stats/rpg" style="border-top: 2px solid #EAAB4E; border-right: 2px solid #EAAB4E; border-bottom: 2px solid #EAAB4E; border-top-right-radius: 10px; border-bottom-right-radius: 10px;" <% if (statsMenu == 'rpg') {%> class='active' <% } %>>RPG</a>
 		<div class="filter" id="board-filter">
 			<label for="playtime">Playtime</label>
 			<span></span>
@@ -14,6 +14,25 @@
 		</div>
 	</div>
 	<div class="stats">
-		
+		<table cellspacing="0">
+			<tr>
+				<th>PLAYER</th>
+				<th>LEVEL</th>
+				<th>KILLS</th>
+				<th>MONEY</th>
+				<th>DEATHS</th>
+				<th>PLAYTIME</th>
+			</tr>
+			<% boardData.forEach(function(boardItem) { %>
+				<tr id="board">
+					<td><%= boardItem.username %></td>
+					<td><%= boardItem.level %></td>
+					<td><%= boardItem.kills %></td>
+					<td><%= boardItem.money %></td>
+					<td><%= boardItem.deaths %></td>
+					<td><%= boardItem.playtime %> hrs</td>
+				</tr>
+			<% }); %>
+		</table>
 	</div>
 </div>
