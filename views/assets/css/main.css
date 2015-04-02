@@ -59,6 +59,18 @@ body, html {height: 100%;}
 .stats table tr {}
 .stats table #board {background: #313B47; height: 65px; text-align: center; border: 2px solid #EAAB4E;}
 .stats table #board:nth-child(odd) {background: #35414F;}
+.server-wrapper {width: 1100px; margin: auto; color: #fff; margin-top: 120px;}
+.server-wrapper .left {float: left; display: inline-block; width: 400px;}
+.server-wrapper .left .box {width: 350px; border: 2px solid #EAAB4E; display: block; margin-bottom: 25px; text-align: center; height: 200px;}
+.server-wrapper .left .box h2 {font-family: 'Cinzel', serif; margin-top: 55px;}
+.server-wrapper .left .box p {font-family: 'Lato', sans-serif; font-size: 1.3em;}
+.server-wrapper .left .box #connect-ip {outline: 0; border: 0; background: #EAAB4E; height: 45px; color: #fff; font-size: 1.5em; width: 200px; text-align: center; border-top-left-radius: 15px; border-bottom-left-radius: 15px;}
+.server-wrapper .left .box #copy-ip {background: #D2923A; height: 25px; line-height: 35px; padding: 8px; font-size: 20px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; margin-left: -12px; padding-bottom: 12px; padding-left: 15px; padding-right: 15px; position: relative; top: 2px;}
+.server-wrapper .right {float: right; display: inline-block; width: 700px;} 
+.server-wrapper .right .box {width: 700px; font-family: 'Lato', sans-serif; background: url('/images/server-bg.jpg'); background-position: 2% 50%; padding: 8px; position: relative;}
+.server-wrapper .right .box .spacer {padding: 35px;}
+.server-wrapper .right .box .box-title {background: rgba(234, 171, 78, 0.8); padding: 8px; position: absolute; top: 0; left: 0; width: 700px;}
+.server-wrapper .right .box .box-title .online {float: right;}
 
 .footer {color: #fff; font-family: 'Lato', sans-serif; font-size: 16px; text-align: center; height: 50px;}
 .footer #copyright {margin-right: 25px; display: inline-block;}

@@ -24,6 +24,7 @@ var boardSchema = new mongoose.Schema({
 	category: String
 }, {collection: 'boardSchema'});
 var boardPlayer = mongoose.model('boardPlayer', boardSchema);
+
 //var boardTable = new boardPlayer({username: 'killazombiecow', level: 15, kills: 25, money: 1203023.99, deaths: 500, playtime: 120, category: 'rpg'});
 /*boardTable.save(function(err) {
 	if(err)
@@ -66,7 +67,7 @@ app.get('/', function(req, res) {
 		{ link: '/stats', name: 'Stats', active: '' },
 		{ link: 'http://google.com', name: 'Bans', active: ''  },
 		{ link: 'http://google.com', name: 'Map', active: '' },
-		{ link: 'http://google.com', name: 'Servers', active: '' },
+		{ link: '/servers', name: 'Servers', active: '' },
 		{ link: 'http://google.com', name: 'Apply', active: '' }
 	];
 
@@ -83,7 +84,7 @@ app.get('/store', function(req, res) {
 		{ link: '/stats', name: 'Stats', active: '' },
 		{ link: 'http://google.com', name: 'Bans', active: ''  },
 		{ link: 'http://google.com', name: 'Map', active: '' },
-		{ link: 'http://google.com', name: 'Servers', active: '' },
+		{ link: '/servers', name: 'Servers', active: '' },
 		{ link: 'http://google.com', name: 'Apply', active: '' }
 	];
 	storeItem.find(function(err, storeItems) {
@@ -106,7 +107,7 @@ app.get('/stats', function(req, res) {
 		{ link: '/stats', name: 'Stats', active: 'active' },
 		{ link: 'http://google.com', name: 'Bans', active: ''  },
 		{ link: 'http://google.com', name: 'Map', active: '' },
-		{ link: 'http://google.com', name: 'Servers', active: '' },
+		{ link: '/servers', name: 'Servers', active: '' },
 		{ link: 'http://google.com', name: 'Apply', active: '' }
 	];
 	var statsMenu = 'survival';
@@ -128,7 +129,7 @@ app.get('/stats/rpg', function(req, res) {
 		{ link: '/stats', name: 'Stats', active: 'active' },
 		{ link: 'http://google.com', name: 'Bans', active: ''  },
 		{ link: 'http://google.com', name: 'Map', active: '' },
-		{ link: 'http://google.com', name: 'Servers', active: '' },
+		{ link: '/servers', name: 'Servers', active: '' },
 		{ link: 'http://google.com', name: 'Apply', active: '' }
 	];
 	var statsMenu = 'rpg';
@@ -139,6 +140,22 @@ app.get('/stats/rpg', function(req, res) {
 			boardData: boardPlayers,
 			statsMenu: statsMenu
 		});
+	});
+});
+
+app.get('/servers', function(req, res) {
+	var menuItems = [
+		{ link: '/', name: 'Home', active: '' },
+		{ link: 'http://google.com', name: 'Forums', active: '' },
+		{ link: '/store', name: 'Store', active: '' },
+		{ link: '/stats', name: 'Stats', active: '' },
+		{ link: 'http://google.com', name: 'Bans', active: ''  },
+		{ link: 'http://google.com', name: 'Map', active: '' },
+		{ link: '/servers', name: 'Servers', active: 'active' },
+		{ link: 'http://google.com', name: 'Apply', active: '' }
+	];
+	res.render('pages/servers', {
+		menuItems: menuItems
 	});
 });
 
